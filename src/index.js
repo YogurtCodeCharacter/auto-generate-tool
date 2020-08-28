@@ -40,7 +40,7 @@ request.get(`http://192.168.201.34/${args._}/api_data.js`, (err, response, body)
             })
         }
 
-        fs.writeFile('server.js', fileList, 'utf-8', () => {
+        fs.writeFile('server.js', fileList.toString().replace(/,/g, ''), 'utf-8', () => {
             spinner.stop();
             log(chalk.green('file created successfully'));
         });
