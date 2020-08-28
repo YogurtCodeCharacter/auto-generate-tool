@@ -8,7 +8,7 @@ const log = console.log;
 
 let fileList = [];
 let args = minimist(process.argv.slice(2));
-if (args._.length == 0) { log(chalk.red('请先在命令行配置应用名称,例如: npm run start ')); process.exit() };
+if (args._.length == 0) { log(chalk.red('请先在命令行配置应用名称,例如: npm run autoFile 应用名')); process.exit() };
 
 const spinner = ora('file generation...').start();
 
