@@ -3,6 +3,7 @@ const request = require('request');
 const minimist = require('minimist');
 const chalk = require('chalk');
 const ora = require('ora');
+const { conversionData } = require('../units/index.js');
 const log = console.log;
 
 
@@ -40,7 +41,7 @@ request.get(`http://192.168.201.34/${args._}/api_data.js`, (err, response, body)
             })
         }
 
-        fs.writeFile('server.js', fileList.toString().replace(/,/g, ''), 'utf-8', () => {
+        fs.writeFile('server.js', conversionData(fileList), 'utf-8', () => {
             spinner.stop();
             log(chalk.green('file created successfully'));
         });
