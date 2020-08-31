@@ -20,6 +20,18 @@ const postTemplate = templateList.filter((t) => Object.keys(t) == 'post')[0].pos
 
 request.get(`http://192.168.201.34/${args._}/api_data.js`, (err, response, body) => {
     if (!err) {
+        if (response.statusCode == 404) {
+            spinner.stop();
+            log(chalk.red('该应用不存在'));
+            return;
+        }
+
+        if (!body) {
+            spinner.stop();
+            log(chalk.red('该应用下不存在可用的api.doc'));
+            return;
+        }
+
         // TOOD: 去除define() 首尾
         let processString = body;
         processString = processString.replace('define(', '');
