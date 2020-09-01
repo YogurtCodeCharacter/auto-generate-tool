@@ -18,7 +18,7 @@ const { templateList } = TEMPLATE_LIST;
 const getTemplate = templateList.filter((t) => Object.keys(t) == 'get')[0].get;
 const postTemplate = templateList.filter((t) => Object.keys(t) == 'post')[0].post;
 
-request.get(`http://192.168.201.34/${args._}/api_data.js`, (err, response, body) => {
+request.get(`/${args._}/api_data.js`, (err, response, body) => {
     if (!err) {
         if (response.statusCode == 404) {
             spinner.stop();
